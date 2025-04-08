@@ -6,12 +6,7 @@
   margin: 0;
   padding: 0;
 }
-.hide-header {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-100%);
-  transition: all 0.4s ease-in-out;
-}
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: none; /* Firefox */
@@ -47,12 +42,12 @@ body::before {
 }
 
 html[data-theme='dark'] body::before {
-  background-image: url('assets/darkBg.png');
+  background-image: url('/assets/darkBg.png');
   opacity: 1;
 }
 
 html[data-theme='light'] body::before {
-  background-image: url('assets/lightBg.png');
+  background-image: url('/assets/lightBg.png');
   opacity: 1;
 }
 
@@ -102,18 +97,6 @@ html[data-theme='light'] body::before {
   }
 
 }
-
-.footer-hidden {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.footer-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
 /* ======= SCROLLBAR HIDDEN ======= */
 ::-webkit-scrollbar {

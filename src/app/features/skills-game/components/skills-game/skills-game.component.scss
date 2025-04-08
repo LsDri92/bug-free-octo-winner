@@ -22,13 +22,13 @@
   width: 100%;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .carousel-track {
   display: flex;
-  animation: scroll 60s linear infinite;
-  width: fit-content;
+  animation: scroll 30s linear infinite;
+  width: max-content;
 }
 
 .carousel-track img {
@@ -44,6 +44,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-10%);
+    transform: translateX(-50%);
   }
 }
