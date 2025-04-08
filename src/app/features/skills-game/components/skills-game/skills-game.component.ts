@@ -27,10 +27,6 @@ export class SkillsGameComponent {
     'assets/skills/uefnVerse.png',
     'assets/skills/unity.png',
     'assets/skills/unrealengine.png',
-    'assets/skills/angular.png',
-    'assets/skills/csharp.png',
-    'assets/skills/css.png',
-    'assets/skills/electron.png',
   ];
 
   get transformStyle(): string {
