@@ -6,6 +6,7 @@
   "start": "ng serve",
   "build": "ng build --configuration production",
   "watch": "ng build --watch --configuration development",
+   "deploy": "ng build --base-href /portfolio/ && npx angular-cli-ghpages --dir=dist/portfolio-angular/browser",
   "test": "ng test"
 },
   "private": true,
