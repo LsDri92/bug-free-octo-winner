@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: 🛠 Build Angular app
-        run: npm run build -- --base-href=/bug-free-octo-winner/
+        run: npm run build -- --base-href=/portfolio/
 
       - name: 🚀 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
