@@ -1,0 +1,49 @@
+.skills-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skills-title {
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+  color: var(--text-color);
+}
+
+.skills-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-color);
+  margin-bottom: 3rem;
+  text-align: justify;
+}
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  animation: scroll 50s linear infinite;
+  width: max-content;
+}
+
+.carousel-track img {
+  height: 64px;
+  margin: 0 1rem;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

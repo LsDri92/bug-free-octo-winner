@@ -1,0 +1,32 @@
+<div class="modal-backdrop" *ngIf="isOpen">
+    <div class="modal-content">
+      <h2>Contacto</h2>
+      <form (submit)="sendEmail(); $event.preventDefault();">
+        <input
+          type="text"
+          placeholder="Tu nombre"
+          [(ngModel)]="form.name"
+          name="name"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Tu correo"
+          [(ngModel)]="form.email"
+          name="email"
+          required
+        />
+        <textarea
+          placeholder="Tu mensaje"
+          [(ngModel)]="form.message"
+          name="message"
+          required
+        ></textarea>
+        <div class="buttons">
+          <button type="submit">Enviar</button>
+          <button type="button" (click)="close()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

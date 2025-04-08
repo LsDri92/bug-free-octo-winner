@@ -1,0 +1,46 @@
+<section class="contact-links-section">
+  <h2>Mis redes</h2>
+  <div class="contact-links">
+    <a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer">
+      <img src="assets/icons/github.png" alt="GitHub" />
+    </a>
+    <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener noreferrer">
+      <img src="assets/icons/linkedin.png" alt="LinkedIn" />
+    </a>
+    <a href="https://tuusuario.itch.io" target="_blank" rel="noopener noreferrer">
+      <img src="assets/icons/itchio.png" alt="Itch.io" />
+    </a>
+    <a href="/" target="_blank" rel="noopener noreferrer">
+      <img src="assets/icons/web.png" alt="Portfolio" />
+    </a>
+  </div>
+
+  <div class="embedded-contact-form">
+    <h2>Contacto</h2>
+    <form (submit)="sendEmail(); $event.preventDefault();">
+      <input
+        type="text"
+        placeholder="Tu nombre"
+        [(ngModel)]="form.name"
+        name="name"
+        required
+      />
+      <input
+        type="email"
+        placeholder="Tu correo"
+        [(ngModel)]="form.email"
+        name="email"
+        required
+      />
+      <textarea
+        placeholder="Tu mensaje"
+        [(ngModel)]="form.message"
+        name="message"
+        required
+      ></textarea>
+      <div class="buttons">
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+  </div>
+</section>

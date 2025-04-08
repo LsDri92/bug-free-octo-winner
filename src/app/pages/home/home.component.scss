@@ -1,0 +1,43 @@
+.sections-container {
+    overflow-y: scroll;
+    height: 100vh;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory; /* Activa el scroll automático */
+    scrollbar-width: none; /* Oculta la barra de scroll */
+  }
+  
+  .section {
+    scroll-snap-align: start;
+    height: 100vh;
+    opacity: 0.8;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    scroll-snap-align: start;
+  }
+  
+  .section:hover {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  
+  .component {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  
+    a {
+      color: var(--primary-color);
+  
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+  }

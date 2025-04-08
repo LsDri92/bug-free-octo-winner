@@ -1,0 +1,24 @@
+<section class="projects-section">
+  <h2>Proyectos</h2>
+
+  <div class="carousel-container" #carousel>
+    <ng-container *ngIf="projects.length; else noProjects">
+      <div class="project-card" *ngFor="let project of projects">
+        <iframe
+          [src]="getSafeUrl(project.videoUrl)"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+      </div>
+    </ng-container>
+    <ng-template #noProjects>
+      <p class="no-projects">No hay videos por ahora</p>
+    </ng-template>
+  </div>
+
+  <!-- Flechas para desktop -->
+  <button class="nav-button left" (click)="scrollLeft()">←</button>
+  <button class="nav-button right" (click)="scrollRight()">→</button>
+</section>

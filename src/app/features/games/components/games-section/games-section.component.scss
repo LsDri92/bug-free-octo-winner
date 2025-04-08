@@ -1,0 +1,21 @@
+.games {
+  text-align: center;
+  padding: 50px;
+  // background-color: var(--bg-color);
+  color: var(--text-color);
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .pixi-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    border: 2px solid var(--hover-color);
+  }
+}
