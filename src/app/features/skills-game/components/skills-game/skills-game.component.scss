@@ -27,8 +27,8 @@
 
 .carousel-track {
   display: flex;
-  animation: scroll 50s linear infinite;
-  width: max-content;
+  animation: scroll 60s linear infinite;
+  width: fit-content;
 }
 
 .carousel-track img {
@@ -44,6 +44,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-10%);
   }
 }

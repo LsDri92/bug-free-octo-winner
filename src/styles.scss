@@ -47,12 +47,12 @@ body::before {
 }
 
 html[data-theme='dark'] body::before {
-  background-image: url('/assets/darkBg.png');
+  background-image: url('assets/darkBg.png');
   opacity: 1;
 }
 
 html[data-theme='light'] body::before {
-  background-image: url('/assets/lightBg.png');
+  background-image: url('assets/lightBg.png');
   opacity: 1;
 }
 
