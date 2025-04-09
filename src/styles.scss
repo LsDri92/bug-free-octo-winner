@@ -112,3 +112,21 @@ html[data-theme='light'] body::before {
     transform: translateY(0);
   }
 }
+
+#links-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+
+  app-links-section,
+  app-footer {
+
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    display: block; // o dejarlo sin efecto en mobile si hiciera falta
+  }
+}

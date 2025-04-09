@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AboutSectionComponent } from '../../features/about/components/about-section/about-section.component';
 import { ProjectsSectionComponent } from '../../features/projects/components/projects-section/projects-section.component';
@@ -26,8 +26,18 @@ import { HeaderComponent } from '../../shared/components/header/header.component
 })
 export class HomeComponent implements AfterViewInit {
   footerVisible = false;
+  isMobile = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.checkViewport();
+  }
+
+  private checkViewport() {
+    this.isMobile = window.innerWidth <= 768;
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {

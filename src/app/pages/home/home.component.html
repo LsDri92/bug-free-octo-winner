@@ -2,11 +2,17 @@
   <section class="section" id="about"><app-about-section></app-about-section></section>
   <section class="section" id="skills-game"><app-skills-game></app-skills-game></section>
   <section class="section" id="projects"><app-projects-section></app-projects-section></section>
-  <section class="section" id="links">
+ <!-- Render separado en mobile -->
+ <ng-container *ngIf="isMobile; else desktopLinksFooter">
+  <section class="section" id="links"><app-links-section></app-links-section></section>
+  <section class="section" id="footer"><app-footer></app-footer></section>
+</ng-container>
+
+<!-- Render combinado en desktop -->
+<ng-template #desktopLinksFooter>
+  <section class="section" id="links-footer">
     <app-links-section></app-links-section>
-  </section>
-  
-  <section class="section" id="footer">
     <app-footer></app-footer>
   </section>
+</ng-template>
 </main>
