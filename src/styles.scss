@@ -1,21 +1,27 @@
-/* ======= RESET + SCROLL ======= */
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-html {
-  scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-  background-color: var(--bg-color);
-  color: var(--text-color);
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+  justify-items: center;
+}
+
+/* Opcional: evitar zoom raro de textos en móviles */
+body {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  overflow: hidden;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: 'Segoe UI', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -42,17 +48,23 @@ body::before {
 }
 
 html[data-theme='dark'] body::before {
-  background-image: url('/assets/darkBg.png');
+  background-image: url('assets/darkBg.png');
   opacity: 1;
 }
 
 html[data-theme='light'] body::before {
-  background-image: url('/assets/lightBg.png');
+  background-image: url('assets/lightBg.png');
   opacity: 1;
 }
-
+.section {
+  height: calc(var(--vh, 1vh) * 100);
+  overflow-x: visible; // clave
+}
 /* ======= COLORES BASE – Rojo Rubí & Oro Mate ======= */
 :root {
+
+  --vh: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   /* Fondo y texto principal */
   --bg-color: #1a0a0a;
   --text-color: #fdfdfd;
@@ -76,26 +88,6 @@ html[data-theme='light'] body::before {
   --primary-color: #b71c1c;
   --accent-color: #cdaa7d;
   --hover-color: #000000;
-
-  .skills-title {
-    font-size: 2rem;
-    margin: 2rem 0 1rem;
-    color: var(--text-color);
-  }
-  
-  .skills-description {
-    font-size: 1.1rem;
-    line-height: 1;
-    // color: #1a1a1a; // color de la letra
-  text-shadow:
-  -0.5px -0.5px 0 #cdaa7d,  
-   0.5px -0.5px 0 #cdaa7d,
-  -0.5px  0.5px 0 #cdaa7d,
-   0.5px  0.5px 0 #cdaa7d;
-    margin-bottom: 3rem;
-    text-align: justify;
-  }
-
 }
 
 /* ======= SCROLLBAR HIDDEN ======= */

@@ -7,3 +7,5 @@ bootstrapApplication(AppComponent, appConfig)
 
 const savedTheme = localStorage.getItem('theme') ?? 'dark';
 document.documentElement.setAttribute('data-theme', savedTheme);
+const vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);

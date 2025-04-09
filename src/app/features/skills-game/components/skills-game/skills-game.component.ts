@@ -34,6 +34,6 @@ export class SkillsGameComponent {
   }
 
   get technologiesDoubled(): string[] {
-    return [...this.technologies, ...this.technologies];
+    return [...this.technologies, ...this.technologies, ...this.technologies];
   }
 }

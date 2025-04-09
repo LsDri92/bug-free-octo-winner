@@ -3,6 +3,8 @@
   padding: 3rem 1rem;
   max-width: 900px;
   margin: 0 auto;
+  overflow: visible; // <-- Importante si un padre corta
+  padding: 4rem 1rem 6rem; // Más espacio inferior
 }
 
 .skills-title {
@@ -20,24 +22,30 @@
 }
 .carousel-container {
   width: 100%;
-  overflow: hidden;
+  overflow-x: visible; // permitir que el track se expanda
+  overflow-y: visible; // Para evitar cortes verticales
   display: flex;
   justify-content: flex-start;
+  align-items: center; // Centrado vertical de imágenes
 }
-
 .carousel-track {
   display: flex;
   animation: scroll 30s linear infinite;
   width: max-content;
+  background-color: rgba(255, 255, 255, 0.05); // temporal
+  min-height: 70px; // igual o mayor al height de las imágenes
+  align-items: center; // asegura que las imágenes se alineen
+  min-width: 200%; // o lo que necesites para scroll infinito
+  min-height: 70px;
 }
 
 .carousel-track img {
   height: 64px;
+  max-height: 70px;
   margin: 0 1rem;
   flex-shrink: 0;
   opacity: 0.9;
 }
-
 
 @keyframes scroll {
   0% {

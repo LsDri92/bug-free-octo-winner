@@ -1,43 +1,96 @@
+/* Contenedor de secciones */
 .sections-container {
-    overflow-y: scroll;
-    height: 100vh;
-    scroll-behavior: smooth;
-    scroll-snap-type: y mandatory; /* Activa el scroll automático */
-    scrollbar-width: none; /* Oculta la barra de scroll */
+  height: 100dvh; // usa viewport dinámico real en móviles
+  width: 100vw;
+  max-width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
-  
-  .section {
-    scroll-snap-align: start;
-    height: 100vh;
-    opacity: 0.8;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    scroll-snap-align: start;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    padding: 20px;
-    
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    scroll-snap-align: start;
-  }
-  
-  .section:hover {
-    opacity: 1;
-    transform: scale(1.02);
-  }
-  
-  .component {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  
-    a {
-      color: var(--primary-color);
-  
-      &:hover {
-        color: var(--accent-color);
-      }
+}
+
+/* Cada sección */
+.section {
+  scroll-snap-align: start;
+  min-height: 100dvh;
+  width: 100vw;
+  max-width: 100vw;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column; /* importante para layouts internos */
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  // overflow-x: hidden; /* fuerza a que no se desborde */
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0.85;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 1;
+      transform: scale(1.02);
     }
   }
+}
+
+/* Para componentes internos */
+.component {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  a {
+    color: var(--primary-color);
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+    #links {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 2rem; // separa visualmente los componentes
+    }
+  
+    app-links-section,
+    app-footer {
+      justify-content: center;
+      width: 100%;
+  }
+}
+
+.skills-section.component {
+  overflow-x: visible;
+}

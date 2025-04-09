@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ThemeService } from '../../../core/services/theme.service';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '../../../core/services/translation.service';
 
 
 @Component({
@@ -12,9 +13,11 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent {
   @Output() openContactModal = new EventEmitter<void>();
+
+  lang: 'es' | 'en' = 'es';
   menuOpen = false;
   isDarkTheme = true;
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService, private translationService: TranslationService) {}
 
   ngOnInit() {
     if (typeof window !== 'undefined') {
@@ -22,6 +25,14 @@ export class HeaderComponent {
       this.isDarkTheme = theme === 'dark';
       document.documentElement.setAttribute('data-theme', theme);
     }
+
+    this.lang = this.translationService.currentLangCode as 'es' | 'en';
+  }
+  
+
+  toggleLanguage() {
+    this.lang = this.lang === 'es' ? 'en' : 'es';
+    this.translationService.switchLanguage(this.lang);
   }
   
   toggleMenu(): void {
