@@ -1,0 +1,10 @@
+{
+    "about": {
+        "name": "Luciano Sebastian Dri",
+        "title": "Full Stack Developer· Game Developer"
+    },
+    "skills": {
+        "title": "About Me",
+        "description": "Developer since 2020, specialized in game development using PixiJS for HTML5.\nMy main strength is TypeScript, although I have also worked with modern frameworks such as Angular and React for building interactive interfaces.\nWith React and Redux, I have experience creating desktop applications and management systems using Electron, which allows me to develop complete and cross-platform solutions.\nAngular was used to build this portfolio.\nI also have experience with engines like Unreal Engine, UEFN, and Unity, which has allowed me to participate in various 2D and 3D projects.\nSince 2022, I have been working professionally in the video game development industry.\nI am known for my strong social skills and adaptability to teamwork and collaborative environments."
+    }
+}
