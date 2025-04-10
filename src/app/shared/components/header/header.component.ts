@@ -14,7 +14,7 @@ import { TranslationService } from '../../../core/services/translation.service';
 export class HeaderComponent {
   @Output() openContactModal = new EventEmitter<void>();
 
-  lang: 'es' | 'en' = 'es';
+  lang: 'es' | 'en' = 'en';
   menuOpen = false;
   isDarkTheme = true;
   constructor(private themeService: ThemeService, private translationService: TranslationService) {}
