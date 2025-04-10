@@ -1,60 +1,82 @@
 .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.25); // acento dorado
+
+  h2 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-weight: bold;
   }
-  
-  .modal-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  
-    h2 {
-      margin-bottom: 1rem;
+
+  input,
+  textarea {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--text-muted);
+    background-color: #2b1a1a; // un poco más claro que el bg
+    color: var(--text-strong);
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
     }
-  
-    input,
-    textarea {
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.8rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    button {
+      padding: 0.6rem 1.4rem;
       font-size: 1rem;
-    }
-  
-    .buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 1rem;
-  
-      button {
-        padding: 0.6rem 1.2rem;
-        font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: bold;
+
+      &.submit {
+        background-color: var(--primary-color);
+        color: var(--text-strong);
         border: none;
-        border-radius: 8px;
-        cursor: pointer;
-  
-        &:first-child {
-          background-color: #4caf50;
-          color: white;
+
+        &:hover {
+          background-color: var(--hover-color);
+          color: var(--text-inverse);
         }
-  
-        &:last-child {
-          background-color: transparent;
-          color: #f44336;
+      }
+
+      &.cancel {
+        background: transparent;
+        color: var(--text-muted);
+        border: 1px solid var(--text-muted);
+
+        &:hover {
+          color: var(--accent-color);
+          border-color: var(--accent-color);
         }
       }
     }
   }
-  
+}

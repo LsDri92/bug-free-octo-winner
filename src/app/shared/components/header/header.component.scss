@@ -155,3 +155,30 @@
     margin-bottom: 10px;
   }
 }
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-color);
+  color:  var(--primary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+
+  // svg {
+  //   // fill: currentColor;
+  // }
+
+  // &:hover {
+  //   background-color: var(--hover-color);
+  // }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}

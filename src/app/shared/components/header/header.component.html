@@ -1,8 +1,11 @@
 <header class="header">
   <nav class="nav">
     <div class="controls">
-      <button (click)="toggleLanguage()">
-        {{ lang === 'es' ? 'EN' : 'ES' }}
+      <button (click)="toggleLanguage()" class="lang-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.09 15.59A8 8 0 0112 20a8 8 0 01-3.09-15.59c.27 1.23.97 2.71 1.65 3.64h2.88c.68-.93 1.38-2.41 1.65-3.64A8 8 0 0115.09 17.59zM14 12h-4a8 8 0 000 2h4a8 8 0 000-2z"/>
+        </svg>
+        <span>{{ lang === 'en' ? 'EN' : 'ES' }}</span>
       </button>
       <button (click)="openModal()" class="contact-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">

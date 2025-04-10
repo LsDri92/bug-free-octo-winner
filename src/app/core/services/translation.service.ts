@@ -7,7 +7,7 @@ import { ILanguage } from '../models/ILanguage';
 @Injectable({ providedIn: 'root' })
 export class TranslationService {
   private translations$ = new BehaviorSubject<ILanguage | null>(null);
-  private currentLang = 'es';
+  private currentLang = 'en';
 
   constructor(private http: HttpClient) {
     this.loadTranslations(this.currentLang);

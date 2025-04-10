@@ -1,7 +1,11 @@
-// src/app/models/translations.model.ts
 export interface ILanguage {
-  title: string;
-  about: string;
-  projects: string;
-  contact: string;
+  about: {
+    name: string;
+    title: string;
+  };
+  skills: {
+    title: string;
+    description: string;
+  };
+  // ...otras secciones como "projects", "contact", etc.
 }
