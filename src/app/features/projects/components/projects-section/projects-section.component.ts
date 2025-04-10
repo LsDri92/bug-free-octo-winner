@@ -16,12 +16,12 @@ export class ProjectsSectionComponent implements OnInit {
     {
       title: 'ProtoProjects and early experiments on Pixijs',
       description: 'Game Prototypes, Betas & Mechanics in PixiJS + TypeScript',
-      videoUrl: 'https://www.youtube.com/watch?v=vyBOFXpXCr8'
+      videoUrl: 'https://www.youtube.com/embed/vyBOFXpXCr8'
     },
     {
       title: '"Eternal Rest" - Demo - Unreal Engine',
       description: 'Adventure & Puzzle Game Prototype Demo – Unreal Engine',
-      videoUrl: 'https://www.youtube.com/watch?v=mFMfcGoVcsA'
+      videoUrl: 'https://www.youtube.com/embed/mFMfcGoVcsA'
     }
   ];
 
