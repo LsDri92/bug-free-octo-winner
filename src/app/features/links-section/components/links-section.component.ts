@@ -3,6 +3,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import emailjs from 'emailjs-com';
 import { FooterComponent } from '../../footer/component/footer.component';
+import { ILanguage } from '../../../core/models/ILanguage';
+import { TranslationService } from '../../../core/services/translation.service';
+import { Subject, takeUntil } from 'rxjs';
 
 
 @Component({
@@ -15,15 +18,39 @@ import { FooterComponent } from '../../footer/component/footer.component';
 
 
 export class LinksSectionComponent {
+   lang: ILanguage | null = null;
+    private destroy$ = new Subject<void>();
+   get contact() {
+    return this.lang?.contact ?? {title: '', name: '', message: '', email: '', succesMessage: '', errorMessage: '', send: '', cancel: '' };
+  }
+
+  successMessage = '';
+  errorMessage = '';
   form = {
     name: '',
     email: '',
     message: '',
   };
 
+    constructor(private translationService: TranslationService){}
+
+      ngOnInit() {
+        this.translationService.currentTranslations
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(data => this.lang = data);
+      }
+    
+      ngOnDestroy() {
+        this.destroy$.next();
+        this.destroy$.complete();
+      }
+    
+
   sendEmail() {
+    this.successMessage = '';
+    this.errorMessage = '';
     if (!this.form.name || !this.form.email || !this.form.message) {
-      alert('Por favor completá todos los campos.');
+      this.errorMessage = this.contact.errorMessage;
       return;
     }
 
@@ -39,12 +66,12 @@ export class LinksSectionComponent {
         'gPhm4EFalgKx3KrHG' // Reemplazá con tu Public Key
       )
       .then(() => {
-        alert('¡Mensaje enviado con éxito!');
+        this.successMessage = this.contact.succesMessage;
         this.form = { name: '', email: '', message: '' };
       })
       .catch((error) => {
         console.error('Error al enviar el mensaje:', error);
-        alert('Ocurrió un error al enviar el mensaje.');
+        this.errorMessage = this.contact.errorMessage;
       });
   }
 }

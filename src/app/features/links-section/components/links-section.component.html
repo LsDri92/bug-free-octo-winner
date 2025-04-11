@@ -1,32 +1,34 @@
 <section class="contact-links-section">
   <div class="embedded-contact-form">
-    <h2>Contacto</h2>
+    <h2>{{contact.title}}</h2>
     <form (submit)="sendEmail(); $event.preventDefault();">
       <input
         type="text"
-        placeholder="Tu nombre"
+        placeholder={{contact.name}}
         [(ngModel)]="form.name"
-        name="name"
+        name={{contact.name}}
         required
       />
       <input
         type="email"
-        placeholder="Tu correo"
+        placeholder={{contact.email}}
         [(ngModel)]="form.email"
-        name="email"
+        name={{contact.email}}
         required
       />
       <textarea
-        placeholder="Tu mensaje"
+        placeholder={{contact.message}}
         [(ngModel)]="form.message"
-        name="message"
+        name={{contact.message}}
         required
       ></textarea>
       <div class="buttons">
-        <button type="submit">Enviar</button>
+        <button type="submit">{{contact.send}}</button>
       </div>
     </form>
   </div>
+  <div *ngIf="successMessage" class="text-green-600 text-sm mt-2">{{ successMessage }}</div>
+<div *ngIf="errorMessage" class="text-red-600 text-sm mt-2">{{ errorMessage }}</div>
 
   <div class="contact-links">
     <a href="https://github.com/LsDri92" target="_blank" rel="noopener noreferrer">

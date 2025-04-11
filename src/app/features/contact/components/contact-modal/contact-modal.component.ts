@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import emailjs from 'emailjs-com';
+import { ILanguage } from '../../../../core/models/ILanguage';
+import { Subject, takeUntil } from 'rxjs';
+import { TranslationService } from '../../../../core/services/translation.service';
 
 @Component({
   standalone: true,
@@ -11,6 +14,14 @@ import emailjs from 'emailjs-com';
   imports: [CommonModule, FormsModule],
 })
 export class ContactModalComponent {
+    lang: ILanguage | null = null;
+    private destroy$ = new Subject<void>();
+    get contact() {
+      return this.lang?.contact ?? {title: '', name: '', message: '', email: '', succesMessage: '', errorMessage: '', send: '', cancel: '' };
+    }
+  
+    successMessage = '';
+    errorMessage = '';
   @Input() isOpen = false;
   @Output() closed = new EventEmitter<void>();
 
@@ -20,13 +31,26 @@ export class ContactModalComponent {
     message: '',
   };
 
+  constructor(private translationService: TranslationService){}
+
+        ngOnInit() {
+          this.translationService.currentTranslations
+          .pipe(takeUntil(this.destroy$))
+          .subscribe(data => this.lang = data);
+        }
+      
+        ngOnDestroy() {
+          this.destroy$.next();
+          this.destroy$.complete();
+        }
+
   close() {
     this.closed.emit();
   }
 
   sendEmail() {
     if (!this.form.name || !this.form.email || !this.form.message) {
-      alert('Por favor completá todos los campos.');
+      this.errorMessage = this.contact.errorMessage;
       return;
     }
 
@@ -42,13 +66,13 @@ export class ContactModalComponent {
         'gPhm4EFalgKx3KrHG' // Reemplazá con tu Public Key
       )
       .then(() => {
-        alert('¡Mensaje enviado con éxito!');
+        this.successMessage = this.contact.succesMessage;
         this.form = { name: '', email: '', message: '' };
         this.close();
       })
       .catch((error) => {
         console.error('Error al enviar el mensaje:', error);
-        alert('Ocurrió un error al enviar el mensaje.');
+        this.errorMessage = this.contact.errorMessage;
       });
   }
 }

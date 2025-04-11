@@ -1,30 +1,30 @@
 <div class="modal-backdrop" *ngIf="isOpen">
     <div class="modal-content">
-      <h2>Contacto</h2>
+      <h2>{{contact.title}}</h2>
       <form (submit)="sendEmail(); $event.preventDefault();">
         <input
           type="text"
-          placeholder="Tu nombre"
+          placeholder={{contact.name}}
           [(ngModel)]="form.name"
-          name="name"
+          name={{contact.name}}
           required
         />
         <input
           type="email"
-          placeholder="Tu correo"
+          placeholder={{contact.email}}
           [(ngModel)]="form.email"
-          name="email"
+          name={{contact.email}}
           required
         />
         <textarea
-          placeholder="Tu mensaje"
+          placeholder={{contact.message}}
           [(ngModel)]="form.message"
-          name="message"
+          name={{contact.message}}
           required
         ></textarea>
         <div class="buttons">
-          <button type="submit">Enviar</button>
-          <button type="button" (click)="close()">Cancelar</button>
+          <button type="submit">{{contact.send}}</button>
+          <button type="button" (click)="close()">{{contact.cancel}}</button>
         </div>
       </form>
     </div>

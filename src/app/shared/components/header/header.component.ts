@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { ThemeService } from '../../../core/services/theme.service';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../../core/services/translation.service';
+import { ILanguage } from '../../../core/models/ILanguage';
+import { Subject, takeUntil } from 'rxjs';
 
 
 @Component({
@@ -13,6 +15,11 @@ import { TranslationService } from '../../../core/services/translation.service';
 })
 export class HeaderComponent {
   @Output() openContactModal = new EventEmitter<void>();
+      textLang: ILanguage | null = null;
+      private destroy$ = new Subject<void>();
+      get contact() {
+        return this.textLang?.contact ?? {title: '' };
+      }
 
   lang: 'es' | 'en' = 'en';
   menuOpen = false;
@@ -25,10 +32,15 @@ export class HeaderComponent {
       this.isDarkTheme = theme === 'dark';
       document.documentElement.setAttribute('data-theme', theme);
     }
-
+          this.translationService.currentTranslations
+          .pipe(takeUntil(this.destroy$))
+          .subscribe(data => this.textLang = data);
     this.lang = this.translationService.currentLangCode as 'es' | 'en';
   }
-  
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
   toggleLanguage() {
     this.lang = this.lang === 'es' ? 'en' : 'es';
