@@ -38,6 +38,11 @@ export class HomeComponent implements AfterViewInit {
   private checkViewport() {
     this.isMobile = window.innerWidth <= 768;
   }
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkViewport();
+    }
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
