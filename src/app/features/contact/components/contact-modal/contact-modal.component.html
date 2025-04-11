@@ -6,20 +6,20 @@
           type="text"
           placeholder={{contact.name}}
           [(ngModel)]="form.name"
-          name={{contact.name}}
+          name="name"
           required
         />
         <input
           type="email"
           placeholder={{contact.email}}
           [(ngModel)]="form.email"
-          name={{contact.email}}
+          name="email"
           required
         />
         <textarea
           placeholder={{contact.message}}
           [(ngModel)]="form.message"
-          name={{contact.message}}
+          name="message"
           required
         ></textarea>
         <div class="buttons">
