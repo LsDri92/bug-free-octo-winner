@@ -1,27 +1,52 @@
 <div class="modal-backdrop" *ngIf="isOpen">
     <div class="modal-content">
       <h2>{{contact.title}}</h2>
-      <form (submit)="sendEmail(); $event.preventDefault();">
+      <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm); $event.preventDefault();">
         <input
           type="text"
-          placeholder={{contact.name}}
+          placeholder="{{contact.name}}"
           [(ngModel)]="form.name"
+          required
           name="name"
           required
         />
         <input
           type="email"
-          placeholder={{contact.email}}
+          placeholder="{{contact.email}}"
           [(ngModel)]="form.email"
+          required
           name="email"
           required
         />
         <textarea
-          placeholder={{contact.message}}
+          placeholder="{{contact.message}}"
           [(ngModel)]="form.message"
+          required
           name="message"
           required
         ></textarea>
+  
+        <input
+        type="text"
+        name="botField"
+        [(ngModel)]="form.botField"
+        style="display: none;"
+        tabindex="-1"
+        autocomplete="off"
+      />
+      
+      <div
+        *ngIf="errorMessage"
+        class="feedback-message error"
+      >
+        {{ errorMessage }}
+      </div>
+      <div
+      *ngIf="successMessage"
+      class="feedback-message success"
+    >
+      {{ successMessage }}
+    </div>
         <div class="buttons">
           <button type="submit">{{contact.send}}</button>
           <button type="button" (click)="close()">{{contact.cancel}}</button>

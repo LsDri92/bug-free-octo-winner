@@ -14,8 +14,11 @@ export interface ILanguage {
     email: string;
     send: string;
     cancel: string;
-    succesMessage: string;
-    errorMessage: string;
+    error: string;
+    success: string;
+    invalidMail: string;
+    wait: string;
+    fields: string;
 },
 footer: {
   name: string;

@@ -14,7 +14,7 @@
 }
 
 .skills-description {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 1.5vw, 1.5vw);
   line-height: 1.8;
   color: var(--text-color);
   margin-bottom: 3rem;
@@ -30,7 +30,7 @@
 }
 .carousel-track {
   display: flex;
-  animation: scroll 30s linear infinite;
+  animation: scroll 10s linear infinite;
   width: max-content;
   background-color: rgba(255, 255, 255, 0.05); // temporal
   min-height: 70px; // igual o mayor al height de las imágenes

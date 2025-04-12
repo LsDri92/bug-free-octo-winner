@@ -13,7 +13,12 @@
         "message": "Message",
         "email": "Email",
         "send": "Send",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "error": "error at send a message",
+        "success": "Your message was Send succesfully",
+        "invalidMail": "Insert a valid Email.",
+        "wait": "Please wait for send another message.",
+        "fields": "All fields are required."
     },
     "footer": {
         "name": "Luciano Sebastian Dri",

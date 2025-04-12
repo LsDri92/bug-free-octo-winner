@@ -173,3 +173,19 @@
     }
   }
 }
+
+.feedback-message {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  opacity: 1; // ✅ Para que siempre se vea
+  transition: opacity 0.5s ease;
+
+  &.success {
+    color: #16a34a;
+  }
+
+  &.error {
+    color: #dc2626;
+  }
+}

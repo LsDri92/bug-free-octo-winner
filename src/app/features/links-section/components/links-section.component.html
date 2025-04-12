@@ -1,34 +1,59 @@
 <section class="contact-links-section">
   <div class="embedded-contact-form">
     <h2>{{contact.title}}</h2>
-    <form (submit)="sendEmail(); $event.preventDefault();">
+    <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm); $event.preventDefault();">
       <input
         type="text"
-        placeholder={{contact.name}}
+        placeholder="{{contact.name}}"
         [(ngModel)]="form.name"
+        required
         name="name"
         required
       />
       <input
         type="email"
-        placeholder={{contact.email}}
+        placeholder="{{contact.email}}"
         [(ngModel)]="form.email"
+        required
         name="email"
         required
       />
       <textarea
-        placeholder={{contact.message}}
+        placeholder="{{contact.message}}"
         [(ngModel)]="form.message"
+        required
         name="message"
         required
       ></textarea>
+
+      <input
+      type="text"
+      name="botField"
+      [(ngModel)]="form.botField"
+      style="display: none;"
+      tabindex="-1"
+      autocomplete="off"
+    />
+    
+    <div
+      *ngIf="errorMessage"
+      class="feedback-message error"
+    >
+      {{ errorMessage }}
+    </div>
+    <div
+    *ngIf="successMessage"
+    class="feedback-message success"
+  >
+    {{ successMessage }}
+  </div>
+  
+
       <div class="buttons">
-        <button type="submit">{{contact.send}}</button>
+        <button type="submit" [disabled]="isSending">{{contact.send}}</button>
       </div>
     </form>
   </div>
-  <div *ngIf="successMessage" class="text-green-600 text-sm mt-2">{{ successMessage }}</div>
-<div *ngIf="errorMessage" class="text-red-600 text-sm mt-2">{{ errorMessage }}</div>
 
   <div class="contact-links">
     <a href="https://github.com/LsDri92" target="_blank" rel="noopener noreferrer">
