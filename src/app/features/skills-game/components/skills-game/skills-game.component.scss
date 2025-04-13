@@ -3,8 +3,8 @@
   max-width: 900px;
   max-height: fit-content;
   margin: 0 auto;
-  overflow: visible; // <-- Importante si un padre corta
-  padding: 2rem 1rem 4rem; // Más espacio inferior
+  overflow: visible;
+  padding: 2rem 1rem 4rem;
 }
 
 .skills-title {
@@ -20,23 +20,24 @@
   margin-bottom: 3rem;
   text-align: justify;
 }
+
 .carousel-container {
   width: 100%;
-  overflow-x: visible; // permitir que el track se expanda
-  overflow-y: visible; // Para evitar cortes verticales
+  overflow-x: hidden; // 👈 ocultar el "loop"
+  overflow-y: visible;
   display: flex;
   justify-content: flex-start;
-  align-items: center; // Centrado vertical de imágenes
+  align-items: center;
 }
+
 .carousel-track {
   display: flex;
-  animation: scroll 30s linear infinite;
+  animation: scroll-pingpong 8s linear infinite alternate; // 👈 importante: alternate
   width: max-content;
-  background-color: rgba(255, 255, 255, 0.05); // temporal
-  min-height: 70px; // igual o mayor al height de las imágenes
-  align-items: center; // asegura que las imágenes se alineen
-  min-width: 200%; // o lo que necesites para scroll infinito
+  background-color: rgba(255, 255, 255, 0.05);
   min-height: 70px;
+  align-items: center;
+  min-width: max-content;
 }
 
 .carousel-track img {
@@ -45,13 +46,20 @@
   margin: 0 1rem;
   flex-shrink: 0;
   opacity: 0.9;
+  pointer-events: none;
+  user-select: none;
 }
 
-@keyframes scroll {
+.carousel-container:hover .carousel-track {
+  animation-play-state: paused; // 👈 pausa animación al hacer hover
+  pointer-events: auto; // reactiva scroll al hacer hover
+}
+
+@keyframes scroll-pingpong {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50%); // Ajustá este valor según el contenido
   }
 }
