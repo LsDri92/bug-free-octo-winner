@@ -1,10 +1,10 @@
 .skills-section {
   text-align: center;
-  padding: 3rem 1rem;
   max-width: 900px;
+  max-height: fit-content;
   margin: 0 auto;
   overflow: visible; // <-- Importante si un padre corta
-  padding: 4rem 1rem 6rem; // Más espacio inferior
+  padding: 2rem 1rem 4rem; // Más espacio inferior
 }
 
 .skills-title {
@@ -30,7 +30,7 @@
 }
 .carousel-track {
   display: flex;
-  animation: scroll 10s linear infinite;
+  animation: scroll 30s linear infinite;
   width: max-content;
   background-color: rgba(255, 255, 255, 0.05); // temporal
   min-height: 70px; // igual o mayor al height de las imágenes

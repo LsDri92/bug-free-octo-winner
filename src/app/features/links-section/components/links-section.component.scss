@@ -52,10 +52,10 @@
     margin-bottom: 3rem;
     opacity: 0;
     animation: fadeIn 1.2s ease 0.6s forwards;
-
+  
     a {
       padding: 0.5rem;
-
+  
       img {
         max-width: 60px;
         max-height: 60px;
@@ -63,18 +63,25 @@
         height: auto;
         transition: transform 0.3s ease, filter 0.3s ease;
         filter: drop-shadow(1px 1px 1px #00000033);
-
+  
         &:hover {
           transform: scale(1.15);
           filter: drop-shadow(2px 2px 4px #00000055);
         }
-
+  
         @media (max-width: 480px) {
           max-width: 48px;
           max-height: 48px;
-
         }
       }
+    }
+  
+    @media (max-width: 600px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+      row-gap: 1.5rem;
+      column-gap: 2rem;
     }
   }
 

@@ -1,7 +1,7 @@
 <section class="projects-section">
   <div class="carousel-container" #carousel>
     <ng-container *ngIf="projects.length; else noProjects">
-      <div class="project-card" *ngFor="let project of projects">
+      <div class="project-card" *ngFor="let project of projects" #cards>
         <iframe
           [src]="getSafeUrl(project.videoUrl)"
           frameborder="0"
@@ -16,7 +16,17 @@
     </ng-template>
   </div>
 
-  <!-- Flechas para desktop -->
-  <button class="nav-button left" (click)="scrollLeft()">←</button>
-  <button class="nav-button right" (click)="scrollRight()">→</button>
+
+  <div class="nav-buttons-container">
+    <button class="nav-button left" (click)="scrollLeft()">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <button class="nav-button right" (click)="scrollRight()">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M9 6l6 6-6 6"/>
+      </svg>
+    </button>
+  </div>
 </section>

@@ -1,5 +1,6 @@
 .projects-section {
   padding: 2rem;
+
   h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -28,16 +29,19 @@
     color: var(--text-color);
     backdrop-filter: blur(10px);
     transition: transform 0.3s;
+
     iframe {
       width: 100%;
       height: 200px;
       border-radius: 0.5rem;
       margin-bottom: 0.5rem;
     }
+
     h3 {
       font-size: 1.2rem;
       margin: 0.5rem 0;
     }
+
     p {
       font-size: 0.95rem;
       opacity: 0.8;
@@ -50,31 +54,48 @@
     padding: 2rem;
   }
 
-  .nav-button {
-    display: none;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--accent-color);
-    color: black;
-    padding: 0.5rem;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 2;
-    transition: background 0.3s;
+  .nav-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
 
-    &.left {
-      left: 0.5rem;
-    }
-
-    &.right {
-      right: 0.5rem;
+    .nav-button {
+      background-color: var(--accent-color);
+      color: black;
+      padding: 0.75rem;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.3s;
     }
   }
 
   @media (hover: hover) and (pointer: fine) {
+    .nav-buttons-container {
+      display: none;
+    }
+
     .nav-button {
       display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--accent-color);
+      color: black;
+      padding: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.3s;
+
+      &.left {
+        left: 0.5rem;
+      }
+
+      &.right {
+        right: 0.5rem;
+      }
     }
   }
 }
